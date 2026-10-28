@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f6fb">
+    <title>StudyFlow Pro — Your Personal Study Space</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <a href="#" class="brand">
+                <div class="brand-mark">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="13" fill="url(#brandGradient)"/>
+                        <path d="M12 25.5L18 14L23 22L27 16L30 25.5H12Z"
+                              stroke="white" stroke-width="2.3"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="brandGradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop stop-color="#9A8BFF"/>
+                                <stop offset="1" stop-color="#6755E8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span>StudyFlow<span class="brand-pro">PRO</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-link active">
+                    <span class="nav-icon">◈</span>
+                    <span>Overview</span>
+                </a>
+                <a href="#focus" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    <span>Focus timer</span>
+                </a>
+                <a href="#subjects" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    <span>Subjects</span>
+                </a>
+                <a href="#tasks" class="nav-link">
+                    <span class="nav-icon">☑</span>
+                    <span>My tasks</span>
+                </a>
+                <a href="#activity" class="nav-link">
+                    <span class="nav-icon">▥</span>
+                    <span>Study analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-quote">
+                    <div class="quote-sparkle">✦</div>
+                    <p>Consistency beats intensity. Show up for yourself today.</p>
+                    <span>YOUR DAILY REMINDER</span>
+                </div>
+
+                <button class="theme-button" id="themeToggle">
+                    <span class="theme-icon" id="themeIcon">☾</span>
+                    <span id="themeText">Dark appearance</span>
+                    <span class="theme-switch">
+                        <span class="theme-switch-dot"></span>
+                    </span>
+                </button>
+
+                <div class="sidebar-footer">
+                    <span class="status-dot"></span>
+                    Your personal study space
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content" id="dashboard">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">
+                        ☰
+                    </button>
+
+                    <div>
+                        <div class="topbar-eyebrow">
+                            <span class="eyebrow-dot"></span>
+                            YOUR PERSONAL WORKSPACE
+                        </div>
+
+                        <h1 id="greeting">Good evening, scholar<span class="greeting-star">✦</span></h1>
+                        <p class="topbar-subtitle">A little progress today goes a long way.</p>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="date-display">
+                        <div class="date-icon">▦</div>
+                        <div>
+                            <span id="dayName">Wednesday</span>
+                            <strong id="currentDate">October 28, 2026</strong>
+                        </div>
+                    </div>
+
+                    <div class="avatar">S</div>
+                </div>
+            </header>
+
+            <!-- HERO QUOTE -->
+            <section class="hero-card">
+                <div class="hero-content">
+                    <div class="hero-label">
+                        <span>✦</span>
+                        DAILY INSPIRATION
+                    </div>
+
+                    <h2 id="quoteText">
+                        The secret of getting ahead is getting started.
+                    </h2>
+
+                    <p class="quote-author" id="quoteAuthor">— Mark Twain</p>
+                </div>
+
+                <div class="hero-decoration">
+                    <div class="hero-orbit orbit-one"></div>
+                    <div class="hero-orbit orbit-two"></div>
+                    <div class="hero-orbit orbit-three"></div>
+                    <div class="hero-spark">✦</div>
+                    <div class="hero-planet"></div>
+                </div>
+
+                <button class="quote-refresh" id="newQuote" aria-label="New quote">
+                    ↻
+                </button>
+            </section>
+
+            <!-- OVERVIEW -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <div class="section-kicker">YOUR PERFORMANCE</div>
+                        <h2>Progress overview</h2>
+                        <p>Track your consistency, one session at a time.</p>
+                    </div>
+
+                    <div class="live-badge">
+                        <span></span>
+                        LIVE TRACKING
+                    </div>
+                </div>
+
+                <div class="progress-grid">
+
+                    <!-- DAILY -->
+                    <article class="progress-card">
+                        <div class="progress-card-top">
+                            <div>
+                                <div class="card-eyebrow">DAILY GOAL</div>
+                                <div class="progress-main-value" id="dailyTime">0h 00m</div>
+                            </div>
+
+                            <div class="card-icon icon-purple">☀</div>
+                        </div>
+
+                        <div class="ring-wrap">
+                            <svg class="progress-ring" viewBox="0 0 140 140">
+                                <circle class="ring-track" cx="70" cy="70" r="57"/>
+                                <circle class="ring-value daily-ring" cx="70" cy="70" r="57"/>
+                            </svg>
+
+                            <div class="ring-label">
+                                <strong id="dailyPercent">0%</strong>
+                                <span>completed</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-card-footer">
+                            <span class="footer-dot purple-dot"></span>
+                            <span id="dailyRemaining">3h remaining</span>
+                            <span class="footer-muted">of daily goal</span>
+                        </div>
+                    </article>
+
+                    <!-- WEEKLY -->
+                    <article class="progress-card">
+                        <div class="progress-card-top">
+                            <div>
+                                <div class="card-eyebrow">WEEKLY GOAL</div>
+                                <div class="progress-main-value" id="weeklyTime">0h 00m</div>
+                            </div>
+
+                            <div class="card-icon icon-blue">▦</div>
+                        </div>
+
+                        <div class="ring-wrap">
+                            <svg class="progress-ring" viewBox="0 0 140 140">
+                                <circle class="ring-track" cx="70" cy="70" r="57"/>
+                                <circle class="ring-value weekly-ring" cx="70" cy="70" r="57"/>
+                            </svg>
+
+                            <div class="ring-label">
+                                <strong id="weeklyPercent">0%</strong>
+                                <span>completed</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-card-footer">
+                            <span class="footer-dot blue-dot"></span>
+                            <span id="weeklyRemaining">18h remaining</span>
+                            <span class="footer-muted">of weekly goal</span>
+                        </div>
+                    </article>
+
+                    <!-- MONTHLY -->
+                    <article class="progress-card">
+                        <div class="progress-card-top">
+                            <div>
+                                <div class="card-eyebrow">MONTHLY GOAL</div>
+                                <div class="progress-main-value" id="monthlyTime">0h 00m</div>
+                            </div>
+
+                            <div class="card-icon icon-green">✧</div>
+                        </div>
+
+                        <div class="ring-wrap">
+                            <svg class="progress-ring" viewBox="0 0 140 140">
+                                <circle class="ring-track" cx="70" cy="70" r="57"/>
+                                <circle class="ring-value monthly-ring" cx="70" cy="70" r="57"/>
+                            </svg>
+
+                            <div class="ring-label">
+                                <strong id="monthlyPercent">0%</strong>
+                                <span>completed</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-card-footer">
+                            <span class="footer-dot green-dot"></span>
+                            <span id="monthlyRemaining">70h remaining</span>
+                            <span class="footer-muted">of monthly goal</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- FOCUS AND SUBJECTS -->
+            <section class="main-grid">
+
+                <!-- FOCUS TIMER -->
+                <article class="panel focus-panel" id="focus">
+                    <div class="panel-heading">
+                        <div>
+                            <div class="section-kicker">DEEP WORK</div>
+                            <h2>Focus session</h2>
+                            <p>One thing at a time. You've got this.</p>
+                        </div>
+
+                        <div class="focus-status" id="timerStatus">
+                            <span></span>
+                            READY
+                        </div>
+                    </div>
+
+                    <div class="timer-subject-row">
+                        <label for="subjectSelect">FOCUSING ON</label>
+
+                        <select id="subjectSelect">
+                            <option value="Statistics">Statistics</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="timer-visual">
+                        <div class="timer-circle">
+                            <svg viewBox="0 0 240 240">
+                                <circle class="timer-track" cx="120" cy="120" r="108"/>
+                                <circle class="timer-progress" id="timerProgress" cx="120" cy="120" r="108"/>
+                            </svg>
+
+                            <div class="timer-center">
+                                <div class="timer-center-label">FOCUS TIME</div>
+                                <div class="timer-digits" id="timerText">25:00</div>
+                                <div class="timer-mode" id="timerMode">Pomodoro session</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timer-presets">
+                        <button class="preset active" data-minutes="25">25 min</button>
+                        <button class="preset" data-minutes="45">45 min</button>
+                        <button class="preset" data-minutes="60">60 min</button>
+                    </div>
+
+                    <div class="timer-actions">
+                        <button class="button button-ghost" id="resetTimer">
+                            <span>↺</span>
+                            Reset
+                        </button>
+
+                        <button class="button button-primary" id="startTimer">
+                            <span>▶</span>
+                            Start focus
+                        </button>
+                    </div>
+
+                    <div class="focus-footnote">
+                        <span>✦</span>
+                        Your focus time is automatically recorded.
+                    </div>
+                </article>
+
+                <!-- SUBJECT BREAKDOWN -->
+                <article class="panel subjects-panel" id="subjects">
+                    <div class="panel-heading">
+                        <div>
+                            <div class="section-kicker">TIME ALLOCATION</div>
+                            <h2>Subject breakdown</h2>
+                            <p>Understand where your time goes.</p>
+                        </div>
+
+                        <div class="period-badge">THIS WEEK</div>
+                    </div>
+
+                    <div class="subject-list" id="subjectList"></div>
+
+                    <div class="subject-summary">
+                        <div>
+                            <span class="summary-dot"></span>
+                            <span>Total study time</span>
+                        </div>
+
+                        <strong id="subjectTotal">0h 00m</strong>
+                    </div>
+                </article>
+            </section>
+
+            <!-- WEEKLY ACTIVITY -->
+            <section class="panel activity-panel" id="activity">
+                <div class="panel-heading">
+                    <div>
+                        <div class="section-kicker">YOUR CONSISTENCY</div>
+                        <h2>Weekly activity</h2>
+                        <p>Your study rhythm over the last seven days.</p>
+                    </div>
+
+                    <div class="activity-total">
+                        <span>THIS WEEK</span>
+                        <strong id="activityTotal">0h 00m</strong>
+                    </div>
+                </div>
+
+                <div class="weekly-chart" id="weeklyChart"></div>
+            </section>
+
+            <!-- TASKS -->
+            <section class="panel tasks-panel" id="tasks">
+                <div class="panel-heading">
+                    <div>
+                        <div class="section-kicker">STAY ORGANIZED</div>
+                        <h2>Today's tasks</h2>
+                        <p>Turn your plans into progress.</p>
+                    </div>
+
+                    <div class="task-counter" id="taskCounter">0 / 0 completed</div>
+                </div>
+
+                <form class="task-form" id="taskForm">
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Add a task for today..."
+                        maxlength="120"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <select id="taskSubject">
+                        <option value="Statistics">Statistics</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <button type="submit" class="button button-primary">
+                        + Add task
+                    </button>
+                </form>
+
+                <div class="task-list" id="taskList"></div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="main-footer">
+                <div class="footer-brand">
+                    <span class="footer-brand-icon">✦</span>
+                    StudyFlow Pro
+                </div>
+
+                <p>Designed for your growth. Built for your goals.</p>
+
+                <div class="footer-status">
+                    <span></span>
+                    Your progress stays on this device
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
